@@ -39,4 +39,5 @@ urlpatterns = [
 
     #  обработчик для главной страницы ищем в urls.py приложения posts
     path("", include("posts.urls")),
+    path("group/", include("posts.urls")),
 ]

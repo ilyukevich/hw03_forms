@@ -1,16 +1,16 @@
 from django.contrib import admin
-from .models import Post
-from .models import Group
+from .models import Post, Group
+
 
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
-    # перечисляем поля, которые должны отображаться в админке
-    # добавим в начало столбец pk
+    """fields that should be displayed in the admin panel"""
+    # add column 'pk' to the beginning
     list_display = ("pk", "text", "pub_date", "author")
-    # добавляем интерфейс для поиска по тексту постов
+    # adding an interface for searching by post text
     search_fields = ("text",)
-    # добавляем возможность фильтрации по дате
+    # adding the ability to filter by date
     list_filter = ("pub_date",)
     empty_value_display = "-пусто-"
 
@@ -22,6 +22,6 @@ class GroupAdmin(admin.ModelAdmin):
     list_filter = ()
     empty_value_display = "-пусто-"
 
-# при регистрации модели Post источником конфигурации для неё назначаем класс PostAdmin
+# when registering a Post model as a configuration source, assign the PostAdmin class to it
 admin.site.register(Post, PostAdmin)
 admin.site.register(Group, GroupAdmin)

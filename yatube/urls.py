@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+
 urlpatterns = [
     # регистрация и авторизация
     path("auth/", include("users.urls")),
@@ -30,8 +31,5 @@ urlpatterns = [
 
     # обработчик для главной страницы ищем в urls.py приложения posts
     path("", include("posts.urls")),
-    path("group/", include("posts.urls")),
 
-    #add
-    path("", include("posts.urls")),
 ]
